@@ -1,0 +1,23 @@
+<form class="md:flex justify-center px-20 bg-white gap-10">
+    <div class="">Div1</div>
+    <div class="bg-white my-10 rounded w-1/4 flex flex-col gap-3 shadow-sm drop-shadow-md"> 
+        <div class="text-center">
+
+            <div class="flex justify-center">
+                <img [src]="profilePicture" alt="Profile Picture" class="rounded-full bg-blue-800 h-24 w-24">
+            </div>
+            <div class="text-2xl my-2 font-medium">Register</div>
+        </div>
+        <div class="w-full">
+            <mat-form-field class="w-full"  apperance="fill">
+                <mat-label>Email</mat-label>
+                <input matInput name="email" [(ngModel)]="email" placeholder="Email" />
+            </mat-form-field>
+
+            <mat-form-field class="w-full"  apperance="fill">
+                <mat-label>Full Name</mat-label>
+                <input matInput name="fullName" [(ngModel)]="fullName" placeholder="Full Name" />
+            </mat-form-field>
+        </div> 
+    </div>
+</form>
