@@ -16,7 +16,7 @@ public static class AccountEndpoint
         var group = app.MapGroup("/api/account").WithTags("account");
 
         group.MapPost("/register", async (HttpContext context, UserManager<AppUser> userManager,
-        [FromForm] string fullName, [FromForm] string email, [FromForm] string password, [FromForm] string userName, [FromForm] string confirmPassword, [FromForm] IFormFile? profileImage) =>
+        [FromForm] string fullName, [FromForm] string email, [FromForm] string password, [FromForm] string userName, [FromForm] IFormFile? profileImage) =>
         {
             var userFromDb = await userManager.FindByEmailAsync(email);
 
