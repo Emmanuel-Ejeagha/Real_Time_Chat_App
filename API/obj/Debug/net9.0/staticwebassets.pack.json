@@ -1,16 +1,52 @@
 {
   "Files": [
     {
+      "Id": "/home/emmytek/Desktop/Real_Time_Chat_App/API/wwwroot/uploads/1d8c9c4a-8da8-447a-97fe-40542a732d79.jpeg",
+      "PackagePath": "staticwebassets/uploads/1d8c9c4a-8da8-447a-97fe-40542a732d79.jpeg"
+    },
+    {
+      "Id": "/home/emmytek/Desktop/Real_Time_Chat_App/API/wwwroot/uploads/47341636-f278-48b3-b935-4ddd83e13953.jpeg",
+      "PackagePath": "staticwebassets/uploads/47341636-f278-48b3-b935-4ddd83e13953.jpeg"
+    },
+    {
+      "Id": "/home/emmytek/Desktop/Real_Time_Chat_App/API/wwwroot/uploads/7ca78096-f73f-4916-9bf7-328c9a93a213.jpeg",
+      "PackagePath": "staticwebassets/uploads/7ca78096-f73f-4916-9bf7-328c9a93a213.jpeg"
+    },
+    {
+      "Id": "/home/emmytek/Desktop/Real_Time_Chat_App/API/wwwroot/uploads/99ff1d29-1542-48c2-84a7-32b6e77333e1.png",
+      "PackagePath": "staticwebassets/uploads/99ff1d29-1542-48c2-84a7-32b6e77333e1.png"
+    },
+    {
       "Id": "/home/emmytek/Desktop/Real_Time_Chat_App/API/wwwroot/uploads/9dace6c8-52d5-4831-86a3-762a36b02d9c.png",
       "PackagePath": "staticwebassets/uploads/9dace6c8-52d5-4831-86a3-762a36b02d9c.png"
+    },
+    {
+      "Id": "/home/emmytek/Desktop/Real_Time_Chat_App/API/wwwroot/uploads/a23b8985-305c-4a29-bac8-2dbd49e0eb2b.jpeg",
+      "PackagePath": "staticwebassets/uploads/a23b8985-305c-4a29-bac8-2dbd49e0eb2b.jpeg"
     },
     {
       "Id": "/home/emmytek/Desktop/Real_Time_Chat_App/API/wwwroot/uploads/a34b1386-3830-4800-b333-435d0910adde.png",
       "PackagePath": "staticwebassets/uploads/a34b1386-3830-4800-b333-435d0910adde.png"
     },
     {
+      "Id": "/home/emmytek/Desktop/Real_Time_Chat_App/API/wwwroot/uploads/ae0415c7-3bbd-454c-b7eb-62cb0d3f326d.png",
+      "PackagePath": "staticwebassets/uploads/ae0415c7-3bbd-454c-b7eb-62cb0d3f326d.png"
+    },
+    {
+      "Id": "/home/emmytek/Desktop/Real_Time_Chat_App/API/wwwroot/uploads/dec94478-51b4-4474-a577-6d5c1da9114b.png",
+      "PackagePath": "staticwebassets/uploads/dec94478-51b4-4474-a577-6d5c1da9114b.png"
+    },
+    {
       "Id": "/home/emmytek/Desktop/Real_Time_Chat_App/API/wwwroot/uploads/dfe1941e-3b1a-4927-826e-7d2821ba1d37.png",
       "PackagePath": "staticwebassets/uploads/dfe1941e-3b1a-4927-826e-7d2821ba1d37.png"
+    },
+    {
+      "Id": "/home/emmytek/Desktop/Real_Time_Chat_App/API/wwwroot/uploads/e15a5e59-e387-459b-86e6-25d5825da232.jpeg",
+      "PackagePath": "staticwebassets/uploads/e15a5e59-e387-459b-86e6-25d5825da232.jpeg"
+    },
+    {
+      "Id": "/home/emmytek/Desktop/Real_Time_Chat_App/API/wwwroot/uploads/f4b9acef-315d-47cf-807d-8a1a02345f22.jpeg",
+      "PackagePath": "staticwebassets/uploads/f4b9acef-315d-47cf-807d-8a1a02345f22.jpeg"
     },
     {
       "Id": "obj/Debug/net9.0/staticwebassets/msbuild.API.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",

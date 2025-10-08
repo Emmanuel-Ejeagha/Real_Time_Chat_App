@@ -23,7 +23,7 @@ public class ChatHub(UserManager<AppUser> userManager, AppDbContext context) : H
         var httpContext = Context.GetHttpContext();
         var receiverId = httpContext?.Request.Query["senderId"].ToString();
         var userName = Context.User!.Identity!.Name!;
-        var currentUser = await userManager.FindByEmailAsync(userName);
+        var currentUser = await userManager.FindByNameAsync(userName);
         var connectionId = Context.ConnectionId;
 
 
@@ -64,7 +64,7 @@ public class ChatHub(UserManager<AppUser> userManager, AppDbContext context) : H
         {
             return;
         }
-        List<MessageResponseDto> messages = await context.Messages.Where(x => x.ReceiverId == currentUser!.Id && x.SenderId == recipientId || x.SenderId == currentUser!.Id && x.ReceiverId == recipientId).OrderByDescending(x => x.CreatedDate).Skip((pageNumber - 1) * pageSize).Take(pageSize).OrderBy(x => x.CreatedDate).Select(x => new MessageResponseDto
+        List<MessageResponseDto> messages = await context.Messages.Where(x => (x.ReceiverId == currentUser!.Id && x.SenderId == recipientId) || (x.SenderId == currentUser!.Id && x.ReceiverId == recipientId)).OrderByDescending(x => x.CreatedDate).Skip((pageNumber - 1) * pageSize).Take(pageSize).OrderBy(x => x.CreatedDate).Select(x => new MessageResponseDto
         {
             Id = x.Id,
             Content = x.Content,
@@ -119,7 +119,7 @@ public class ChatHub(UserManager<AppUser> userManager, AppDbContext context) : H
 
         if (connectionId != null)
         {
-            await Clients.Client(connectionId).SendAsync("NotifyZtyingUser", senderUserName);
+            await Clients.Client(connectionId).SendAsync("NotifyTypingUser", senderUserName);
         }
     }
 
