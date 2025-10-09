@@ -2,7 +2,7 @@ using System;
 
 namespace API.Services;
 
-public class Fileupload
+public class FileUpload
 {
     public static async Task<string> Upload(IFormFile file)
     {
@@ -18,6 +18,7 @@ public class Fileupload
         var filePath = Path.Combine(uploadFolder, fileName);
 
         await using var stream = new FileStream(filePath, FileMode.Create);
+        await file.CopyToAsync(stream);
         return fileName;
     }
 }

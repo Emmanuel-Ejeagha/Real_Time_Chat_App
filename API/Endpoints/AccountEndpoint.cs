@@ -30,7 +30,7 @@ public static class AccountEndpoint
                 return Results.BadRequest(Response<string>.Failure("Profile image is required."));
             }
 
-            var picture = await Fileupload.Upload(profileImage);
+            var picture = await FileUpload.Upload(profileImage);
 
             picture = $"{context.Request.Scheme}://{context.Request.Host}/uploads/{picture}";
 

@@ -119,7 +119,7 @@ public class ChatHub(UserManager<AppUser> userManager, AppDbContext context) : H
 
         if (connectionId != null)
         {
-            await Clients.Client(connectionId).SendAsync("NotifyTypingUser", senderUserName);
+            await Clients.Client(connectionId).SendAsync("NotifyTypingToUser", senderUserName);
         }
     }
 
