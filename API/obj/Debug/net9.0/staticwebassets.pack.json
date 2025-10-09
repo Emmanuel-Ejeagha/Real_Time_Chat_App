@@ -1,12 +1,32 @@
 {
   "Files": [
     {
+      "Id": "/home/emmytek/Desktop/Real_Time_Chat_App/API/wwwroot/uploads/0165f61d-2a0b-45b2-b468-615ce923817b.png",
+      "PackagePath": "staticwebassets/uploads/0165f61d-2a0b-45b2-b468-615ce923817b.png"
+    },
+    {
+      "Id": "/home/emmytek/Desktop/Real_Time_Chat_App/API/wwwroot/uploads/1757dc0a-d093-4e79-a69d-83c2c0dd6386.jpeg",
+      "PackagePath": "staticwebassets/uploads/1757dc0a-d093-4e79-a69d-83c2c0dd6386.jpeg"
+    },
+    {
       "Id": "/home/emmytek/Desktop/Real_Time_Chat_App/API/wwwroot/uploads/1d8c9c4a-8da8-447a-97fe-40542a732d79.jpeg",
       "PackagePath": "staticwebassets/uploads/1d8c9c4a-8da8-447a-97fe-40542a732d79.jpeg"
     },
     {
       "Id": "/home/emmytek/Desktop/Real_Time_Chat_App/API/wwwroot/uploads/47341636-f278-48b3-b935-4ddd83e13953.jpeg",
       "PackagePath": "staticwebassets/uploads/47341636-f278-48b3-b935-4ddd83e13953.jpeg"
+    },
+    {
+      "Id": "/home/emmytek/Desktop/Real_Time_Chat_App/API/wwwroot/uploads/4ef11b4b-cb0a-45a7-91aa-9f5e18be87df.png",
+      "PackagePath": "staticwebassets/uploads/4ef11b4b-cb0a-45a7-91aa-9f5e18be87df.png"
+    },
+    {
+      "Id": "/home/emmytek/Desktop/Real_Time_Chat_App/API/wwwroot/uploads/69b51186-2c47-44c7-ba75-7bf600a94d89.png",
+      "PackagePath": "staticwebassets/uploads/69b51186-2c47-44c7-ba75-7bf600a94d89.png"
+    },
+    {
+      "Id": "/home/emmytek/Desktop/Real_Time_Chat_App/API/wwwroot/uploads/7a5c9237-18f0-4956-9828-6841b2359608.png",
+      "PackagePath": "staticwebassets/uploads/7a5c9237-18f0-4956-9828-6841b2359608.png"
     },
     {
       "Id": "/home/emmytek/Desktop/Real_Time_Chat_App/API/wwwroot/uploads/7ca78096-f73f-4916-9bf7-328c9a93a213.jpeg",
@@ -43,6 +63,10 @@
     {
       "Id": "/home/emmytek/Desktop/Real_Time_Chat_App/API/wwwroot/uploads/e15a5e59-e387-459b-86e6-25d5825da232.jpeg",
       "PackagePath": "staticwebassets/uploads/e15a5e59-e387-459b-86e6-25d5825da232.jpeg"
+    },
+    {
+      "Id": "/home/emmytek/Desktop/Real_Time_Chat_App/API/wwwroot/uploads/e6fc1781-9132-4e9e-9cdc-58f1e18b9660.png",
+      "PackagePath": "staticwebassets/uploads/e6fc1781-9132-4e9e-9cdc-58f1e18b9660.png"
     },
     {
       "Id": "/home/emmytek/Desktop/Real_Time_Chat_App/API/wwwroot/uploads/f4b9acef-315d-47cf-807d-8a1a02345f22.jpeg",
