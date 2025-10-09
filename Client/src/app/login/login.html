@@ -1,0 +1,118 @@
+<form #userForm="ngForm" (ngSubmit)="login()" class="min-h-screen bg-gradient-to-br from-slate-50 to-blue-100 flex items-center justify-center p-4 sm:p-6 lg:p-8">
+
+    <!-- Main Container -->
+    <div class="w-full max-w-5xl flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12 xl:gap-16">
+
+        <!-- Hero Section - Hidden on mobile, visible on medium+ -->
+        <div class="hidden md:flex md:w-1/2 lg:w-3/5 flex-col items-center justify-center text-center">
+            <div class="w-full h-64 md:h-80 lg:h-96 mb-6" style="background-image: url('login.svg'); background-repeat: no-repeat; background-size: contain; background-color: transparent; background-position: center;">
+            </div>
+            <h2 class="text-2xl lg:text-3xl font-bold text-gray-800 mb-4">Welcome Back</h2>
+            <p class="text-gray-600 text-lg max-w-md">Sign in to access your account and continue your journey with us.</p>
+        </div>
+
+        <!-- Form Card -->
+        <div class="w-full max-w-md lg:max-w-lg xl:max-w-sm bg-white rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-300 ease-in-out overflow-hidden border border-gray-100">
+
+            <!-- Form Header -->
+            <div class="text-center pt-8 pb-6 px-6 bg-gradient-to-r from-blue-700 to-indigo-800 text-white relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-green-400 to-blue-400"></div>
+                <div class="flex justify-center mb-4">
+                    <div class="bg-white/20 p-4 rounded-2xl shadow-lg">
+                        <mat-icon class="text-3xl text-white">lock_person</mat-icon>
+                    </div>
+                </div>
+                <h1 class="text-2xl sm:text-3xl font-bold mb-2">Welcome Back</h1>
+                <p class="text-blue-100 text-sm opacity-90">Sign in to your account</p>
+            </div>
+
+            <!-- Form Content -->
+            <div class="p-6 sm:p-8 space-y-5">
+
+                <!-- Error Message Display -->
+                @if(loginError) {
+                <div class="bg-red-50 border border-red-200 rounded-lg p-4 flex items-start gap-3 animate-pulse">
+                    <mat-icon class="text-red-500 mt-0.5">error</mat-icon>
+                    <div>
+                        <p class="text-red-800 font-medium text-sm">Invalid credentials</p>
+                        <p class="text-red-600 text-xs mt-1">Please check your email and password</p>
+                    </div>
+                </div>
+                }
+
+                <!-- Email Field -->
+                <mat-form-field class="w-full" appearance="outline" floatLabel="always">
+                    <mat-label class="text-gray-700 font-medium">Email Address</mat-label>
+                    <input matInput required name="email" [(ngModel)]="email" #emailModel="ngModel" placeholder="Enter your email" type="email" autocomplete="email" class="mt-1" aria-describedby="email-help email-error" (focus)="loginError = false" />
+                    <mat-icon matPrefix class="text-gray-400 mr-3">alternate_email</mat-icon>
+                    @if(emailModel.errors?.['required'] && emailModel.touched){
+                    <mat-error id="email-error" class="flex items-center gap-2">
+                        <mat-icon class="text-base">error</mat-icon>
+                        Email is required
+                    </mat-error>
+                    }
+                </mat-form-field>
+
+                <!-- Password Field -->
+                <mat-form-field class="w-full" appearance="outline" floatLabel="always">
+                    <mat-label class="text-gray-700 font-medium">Password</mat-label>
+                    <input matInput name="password" required #passwordModel="ngModel" [(ngModel)]="password" placeholder="Enter your password" [type]="hide() ? 'text' : 'password'" autocomplete="current-password" class="mt-1" aria-describedby="password-help password-error"
+                        (focus)="loginError = false" />
+                    <mat-icon matPrefix class="text-gray-400 mr-3">lock</mat-icon>
+                    <button type="button" mat-icon-button matSuffix (click)="togglePassword($event)" [attr.aria-label]="hide() ? 'Hide password' : 'Show password'" class="text-gray-400 hover:text-gray-600 transition-colors mr-1">
+            <mat-icon>{{ hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button> @if (passwordModel.errors?.['required'] && passwordModel.touched) {
+                    <mat-error id="password-error" class="flex items-center gap-2">
+                        <mat-icon class="text-base">error</mat-icon>
+                        Password is required
+                    </mat-error>
+                    }
+                </mat-form-field>
+
+                <!-- Remember Me & Forgot Password -->
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-2">
+                    <!-- <mat-checkbox [(ngModel)]="rememberMe" name="rememberMe" class="text-gray-700">
+            Remember me
+          </mat-checkbox> -->
+                    <a href="#" class="text-blue-600 hover:text-blue-800 text-sm font-medium transition-colors hover:underline focus:outline-none focus:ring-2 focus:ring-blue-200 rounded px-2 py-1">
+            Forgot password?
+          </a>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" [disabled]="!userForm.valid || isLoading" class="w-full mb-3 bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 disabled:from-gray-300 disabled:to-gray-400 text-white rounded-xl p-4 font-semibold text-base transition-all duration-200 ease-in-out transform hover:scale-[1.02] active:scale-[0.98] disabled:scale-100 disabled:cursor-not-allowed shadow-lg hover:shadow-xl min-h-[52px] flex items-center justify-center gap-2"
+                    aria-describedby="submit-help">
+          @if(isLoading) {
+            <mat-icon class="animate-spin">refresh</mat-icon>
+            <span>Signing in...</span>
+          } @else {
+            <mat-icon>login</mat-icon>
+            <span>Sign In</span>
+          }
+        </button>
+
+                <!-- Security Reassurance -->
+                <div class="text-center mb-4">
+                    <p class="text-xs text-gray-500 flex items-center justify-center gap-2">
+                        <mat-icon class="text-green-500 text-sm">security</mat-icon>
+                        Your login information is encrypted and secure
+                    </p>
+                </div>
+
+
+
+
+            </div>
+
+            <!-- Footer -->
+            <div class="bg-gray-50 px-6 py-5 border-t border-gray-200">
+                <p class="text-center text-sm text-gray-600">
+                    Don't have an account?
+                    <a [routerLink]="'/register'" class="text-blue-600 hover:text-blue-800 font-semibold transition-colors ml-1 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-200 rounded px-1">
+            Sign up now
+          </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</form>
