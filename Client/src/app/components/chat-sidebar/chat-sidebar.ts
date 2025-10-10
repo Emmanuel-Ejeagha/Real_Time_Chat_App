@@ -5,29 +5,42 @@ import { AuthService } from '../../services/auth-service';
 import { Router } from '@angular/router';
 import { ChatService } from '../../services/chat-service';
 import { TitleCasePipe } from '@angular/common';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'app-chat-sidebar',
   imports: [MatIconModule, MatMenuModule, TitleCasePipe],
   templateUrl: './chat-sidebar.html',
-  styles: ``
+  styles: ``,
 })
-export class ChatSidebar implements OnInit{
-handImageError($event: ErrorEvent) {
-throw new Error('Image Method not implemented.');
-}
- 
-  authService = inject(AuthService)
-  chatService = inject(ChatService)
-  router = inject(Router)
+export class ChatSidebar implements OnInit {
+  authService = inject(AuthService);
+  chatService = inject(ChatService);
+  router = inject(Router);
 
   logout() {
     this.authService.logout();
-    this.router.navigate(['/login'])
-    this.chatService.disconnectConnection()
+    this.router.navigate(['/login']);
+    this.chatService.disconnectConnection();
   }
 
   ngOnInit(): void {
-  this.chatService.startConnection(this.authService.getAccessToken!)  
+    this.chatService.startConnection(this.authService.getAccessToken!);
+    // Check current user data
+    console.log('Current user:', this.authService.currentLoggedUser);
+    console.log(
+      'Current user profile picture:',
+      this.authService.currentLoggedUser?.profilePicture
+    );
+
+    // Check if online users have the property
+    this.chatService.onlineUsers().forEach((user, index) => {
+      console.log(`User ${index} profile:`, user.profilePicture);
+    });
+  }
+
+  openChatWindow(user: User) {
+    this.chatService.currentOpenedChat.set(user);
+    this.chatService.loadMessages(1);
   }
 }
