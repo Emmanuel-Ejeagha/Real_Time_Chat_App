@@ -34,6 +34,17 @@ export class ChatService {
         console.log('Connection or login error', error);
       });
 
+    this.hubConnection!.on('Notify', (user: User) => {
+      Notification.requestPermission().then((result) => {
+        if (result == 'granted') {
+          new Notification('Active now ', {
+            body: user.fullName + ' is online now',
+            icon: user.profileImage,
+          });
+        }
+      });
+    });
+
     this.hubConnection!.on('OnlineUsers', (user: User[]) => {
       console.log('Raw users data:', user);
       console.log('First user profilePicture:', user[2]?.profilePicture);
@@ -41,6 +52,27 @@ export class ChatService {
       this.onlineUsers.update(() =>
         user.filter((user) => user.userName !== this.authService.currentLoggedUser!.userName)
       );
+    });
+
+    this.hubConnection!.on('NotifyTypingToUser', (senderUserName) => {
+      this.onlineUsers.update((users) =>
+        users.map((user) => {
+          if (user.userName === senderUserName) {
+            user.isTyping = true;
+          }
+          return user;
+        })
+      );
+      setTimeout(() => {
+        this.onlineUsers.update((users) =>
+          users.map((user) => {
+            if (user.userName === senderUserName) {
+              user.isTyping = false;
+            }
+            return user;
+          })
+        );
+      }, 2000);
     });
 
     this.hubConnection!.on('ReceiveMessageList', (message) => {
@@ -115,6 +147,16 @@ export class ChatService {
       .catch()
       .finally(() => {
         this.isLoading.update(() => false);
+      });
+  }
+
+  notifyTyping() {
+    this.hubConnection!.invoke('NotifyTyping', this.currentOpenedChat()?.userName)
+      .then((x) => {
+        console.log('notify for', x);
+      })
+      .catch((error) => {
+        console.log(error);
       });
   }
 }

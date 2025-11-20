@@ -2,7 +2,7 @@
 <div class="relative w-full bg-[#dfe7f1] h-full">
   <div class="chat-header flex justify-between items-center border-b w-full bg-white p-4">
     <div class="">
-      <span class="font-bold">
+      <span class="font-bold leading-normal">
         {{ chatService.currentOpenedChat()?.fullName | titlecase }}
       </span>
       <br />
@@ -20,6 +20,8 @@
   <div class="absolute flex items-center bottom-0 border-t w-full bg-white p-4">
     <input
       type="text"
+      (input)="chatService.notifyTyping()"
+      (keydown.enter)="sendMessage()"
       [(ngModel)]="message"
       class="w-full bg-gray-200 focus:outline-none text-gray-900 border rounded-full px-6 p-2"
       placeholder="Type message..."
